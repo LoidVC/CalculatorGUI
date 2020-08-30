@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=91025e80-9861-4e52-9cb5-ff9b7e27a814
-Description=ÃæÏò¶ÔÏó³õÊÔ ¼ÆËãÆ÷v0.4.3
+Description=é¢å‘å¯¹è±¡åˆè¯• è®¡ç®—å™¨v0.4.3
 Enable=1
 AutoRun=0
 [Repeat]
@@ -27,28 +27,28 @@ UEsDBBQAAgAIAC6xd068h86EQxgAAAiOAQAJABEAVUlQYWNrYWdlVVQNAAeTrpZck66WXJOullztnQWc
 
 
 [Script]
-//20180410 v0.1ÃæÏò¶ÔÏó³õÊ¶
-//20180417 v0.2ÖÆ×÷¼ÆËãÆ÷
-//20180424 v0.3Í¨¹ıint()×ª»»ÊµÏÖ¶àÎ»ÊıµÄÔËËã(ÔËËã¸ü¸ÄÎª×Ö·û×ª»»Ê½)
-//20180508 v0.4ÊµÏÖÀ¨ºÅÓÅÏÈ¼¶(ÄÚº¬µ¥´Î)ÔËËã
-//20180515 v0.4.1¼ÌĞøÊµÏÖ
-//(ÔËËã¸üĞÂÎªÀàwindows¸½¼ş£¬Á¬ËãÇ°×Ô¶¯µÃ³öÉÏÒ»²½½á¹û)
-//20180520 v0.4.2»ù±¾ÊµÏÖÀ¨ºÅÄÚÈİ
+//20180410 v0.1é¢å‘å¯¹è±¡åˆè¯†
+//20180417 v0.2åˆ¶ä½œè®¡ç®—å™¨
+//20180424 v0.3é€šè¿‡int()è½¬æ¢å®ç°å¤šä½æ•°çš„è¿ç®—(è¿ç®—æ›´æ”¹ä¸ºå­—ç¬¦è½¬æ¢å¼)
+//20180508 v0.4å®ç°æ‹¬å·ä¼˜å…ˆçº§(å†…å«å•æ¬¡)è¿ç®—
+//20180515 v0.4.1ç»§ç»­å®ç°
+//(è¿ç®—æ›´æ–°ä¸ºç±»windowsé™„ä»¶ï¼Œè¿ç®—å‰è‡ªåŠ¨å¾—å‡ºä¸Šä¸€æ­¥ç»“æœ)
+//20180520 v0.4.2åŸºæœ¬å®ç°æ‹¬å·å†…å®¹
 
-Dimenv a, b, out,input//a,bÎª×Ö·û´®
+Dimenv a, b, out,input//a,bä¸ºå­—ç¬¦ä¸²
 a = ""
 b = ""
 out = ""
-input = true//Îªa¸³ÖµÎªtrue£¬Îªb¸³ÖµÎªfalse
+input = true//ä¸ºaèµ‹å€¼ä¸ºtrueï¼Œä¸ºbèµ‹å€¼ä¸ºfalse
 
-DimEnv spcWrite,spcA,spcB,spcOut,spaceInput//À¨ºÅ×Ö·û´®
+DimEnv spcWrite,spcA,spcB,spcOut,spaceInput//æ‹¬å·å­—ç¬¦ä¸²
 spcA = ""
 spcB = ""
-spcOut = ""//ÔËËã½á¹û
-SpcReturn = ""//ÔËËã½ø³Ì·´À¡
+spcOut = ""//è¿ç®—ç»“æœ
+SpcReturn = ""//è¿ç®—è¿›ç¨‹åé¦ˆ
 spcInput = true
 
-spcWrite = false//À¨ºÅÔËËãÊ±½øĞĞĞ´Èë
+spcWrite = false//æ‹¬å·è¿ç®—æ—¶è¿›è¡Œå†™å…¥
 
 Event Form1.out.Change
 	
@@ -56,7 +56,7 @@ End Event
 
 //Env
 Event Form1.clean.Click
-    input = true//Îªa¸³Öµ
+    input = true//ä¸ºaèµ‹å€¼
     spcWrite = false
     a = ""
     b = ""
@@ -65,13 +65,13 @@ Event Form1.clean.Click
     form1.out.Text = "0"
 End Event
 
-Event Form1.back.Click//µ¹ÍËÒ»²½
-    //ÎÄ±¾¿ò
+Event Form1.back.Click//å€’é€€ä¸€æ­¥
+    //æ–‡æœ¬æ¡†
     form1.out.Text = Left(form1.out.Text,(Len(form1.out.Text) - 1))
     If Len(form1.out.Text) = 0 Then 
         form1.out.Text ="0"
     End If
-    //ÔËËã·û
+    //è¿ç®—ç¬¦
     If input = false and b <> "" Then 
         b = left(b, (Len(b) - 1))
     ElseIf input = false and b = "" Then
@@ -79,10 +79,10 @@ Event Form1.back.Click//µ¹ÍËÒ»²½
     End If
 End Event
 
-//À¨ºÅ
-Event Form1.spcLeft.Click//×óÀ¨ºÅ
-    spcWrite = true//À¨ºÅĞ´Èë
-    spcInput = true//AÊäÈë
+//æ‹¬å·
+Event Form1.spcLeft.Click//å·¦æ‹¬å·
+    spcWrite = true//æ‹¬å·å†™å…¥
+    spcInput = true//Aè¾“å…¥
     spcText = ""
     If form1.out.Text = "0" Then 
         form1.out.Text = "("	
@@ -91,7 +91,7 @@ Event Form1.spcLeft.Click//×óÀ¨ºÅ
     End If
 End Event
 
-Event Form1.spcRight.Click//ÓÒÀ¨ºÅ ÀàËÆµÈÓÚ
+Event Form1.spcRight.Click//å³æ‹¬å· ç±»ä¼¼ç­‰äº
     If spcWrite = true Then 
         spcWrite = false
         spcA = int(spcA)
@@ -128,13 +128,13 @@ End Event
 //num
 Event Form1.num1.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "1"	
         else
             form1.out.Text = form1.out.Text & "1"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "1"
         Else 
@@ -142,10 +142,10 @@ Event Form1.num1.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "1"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then
             spcA = spcA & "1"
         Elseif spcInput = false then 
@@ -156,13 +156,13 @@ End Event
 
 Event Form1.num2.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "2"	
         else
             form1.out.Text = form1.out.Text & "2"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "2"
         Else 
@@ -170,10 +170,10 @@ Event Form1.num2.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "2"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "2"
         Elseif spcInput = false then 
@@ -184,13 +184,13 @@ End Event
 
 Event Form1.num3.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "3"	
         else
             form1.out.Text = form1.out.Text & "3"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "3"
         Else 
@@ -198,10 +198,10 @@ Event Form1.num3.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "3"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "3"
         Elseif spcInput = false then 
@@ -212,13 +212,13 @@ End Event
 
 Event Form1.num4.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "4" Then 
             form1.out.Text = "4"	
         else
             form1.out.Text = form1.out.Text & "4"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "4"
         Else 
@@ -226,10 +226,10 @@ Event Form1.num4.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "4"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "4"
         Elseif spcInput = false then 
@@ -240,13 +240,13 @@ End Event
 
 Event Form1.num5.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "5"	
         else
             form1.out.Text = form1.out.Text & "5"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "5"
         Else 
@@ -254,10 +254,10 @@ Event Form1.num5.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "5"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "5"
         Elseif spcInput = false then 
@@ -268,13 +268,13 @@ End Event
 
 Event Form1.num6.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "6"	
         else
             form1.out.Text = form1.out.Text & "6"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "6"
         Else 
@@ -282,10 +282,10 @@ Event Form1.num6.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "6"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "6"
         Elseif spcInput = false then 
@@ -296,13 +296,13 @@ End Event
 
 Event Form1.num7.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "7"	
         else
             form1.out.Text = form1.out.Text & "7"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "7"
         Else 
@@ -310,10 +310,10 @@ Event Form1.num7.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "7"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "7"
         Elseif spcInput = false then 
@@ -324,13 +324,13 @@ End Event
 
 Event Form1.num8.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "8"	
         else
             form1.out.Text = form1.out.Text & "8"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "8"
         Else 
@@ -338,10 +338,10 @@ Event Form1.num8.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
 		form1.out.Text = form1.out.Text & "8"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "8"
         Elseif spcInput = false then 
@@ -352,13 +352,13 @@ End Event
 
 Event Form1.num9.click
     If  spcWrite = false then
-        //½»»¥·´À¡
+        //äº¤äº’åé¦ˆ
         If form1.out.Text = "0" Then 
             form1.out.Text = "9"	
         else
             form1.out.Text = form1.out.Text & "9"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "9"
         Else 
@@ -366,10 +366,10 @@ Event Form1.num9.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "9"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "9"
         Elseif spcInput = false then 
@@ -380,13 +380,13 @@ End Event
 
 Event Form1.num0.click
     If  spcWrite = false then
-        //½»»¥·´À¡ 0¾Í²»¸ÄÁËemm
+        //äº¤äº’åé¦ˆ 0å°±ä¸æ”¹äº†emm
         If form1.out.Text = "0" Then 
             form1.out.Text = "0"	
         else
             form1.out.Text = form1.out.Text & "0"
         End If
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If input = true Then 
             a = a & "0"
         Else 
@@ -394,10 +394,10 @@ Event Form1.num0.click
         End If
     End If
 	
-    //À¨ºÅÄÚ
+    //æ‹¬å·å†…
     If spcWrite = true Then 
         form1.out.Text = form1.out.Text & "0"
-        //¼ÓÊı¸³Öµ
+        //åŠ æ•°èµ‹å€¼
         If spcInput = true Then 
             spcA = spcA & "0"
         Elseif spcInput = false then 
